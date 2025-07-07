@@ -1,0 +1,322 @@
+[
+  {
+    "prompt": "Summarize: (CNN)The Palestinian Authority officially became the 123rd member of the International Criminal Court on Wednesday, a step that gives the court jurisdiction over alleged crimes in Palestinian territories. The formal accession was marked with a ceremony at The Hague, in the Netherlands, wh...",
+    "reference": "Membership gives the ICC jurisdiction over alleged crimes committed in Palestinian territories since last June .\nIsrael and the United States opposed the move, which could open the door to war crimes investigations against Israelis .",
+    "base_summary": "",
+    "dpo_summary": "Israel accuses Palestinians of crimes against humanity, including East Jerusalem, since June 13, 2014.\nIsrael accuses Palestinians of crimes against humanity.",
+    "rouge_base": {
+      "rouge1": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rougeL": [
+        0,
+        0,
+        0
+      ]
+    },
+    "rouge_dpo": {
+      "rouge1": [
+        0.3333333333333333,
+        0.20588235294117646,
+        0.2545454545454545
+      ],
+      "rougeL": [
+        0.2857142857142857,
+        0.17647058823529413,
+        0.21818181818181817
+      ]
+    },
+    "bleu_base": 0.0,
+    "bleu_dpo": 0.0
+  },
+  {
+    "prompt": "Summarize: (CNN)Never mind cats having nine lives. A stray pooch in Washington State has used up at least three of her own after being hit by a car, apparently whacked on the head with a hammer in a misguided mercy killing and then buried in a field -- only to survive. That's according to Washington...",
+    "reference": "Theia, a bully breed mix, was apparently hit by a car, whacked with a hammer and buried in a field .\n\"She's a true miracle dog and she deserves a good life,\" says Sara Mellado, who is looking for a home for Theia .",
+    "base_summary": "The Humane Society of the United States has been working with the Humane Society to help the animal's recovery. The Humane Society of the United States has been working with the Humane Society to help the animal's recovery. The Humane Society of the United States has been working with the Humane Society to help the animal's recovery. The Humane Society of the United States has been working with the Humane Society to help the",
+    "dpo_summary": "\"She was a true miracle dog and she deserves a good life,\" Mellado writes. \"She was a true miracle dog and she deserves a good life.\nTheia is a dog with nine lives.\nTheia is a white-and-black bully breed mix.",
+    "rouge_base": {
+      "rouge1": [
+        0.025974025974025976,
+        0.046511627906976744,
+        0.033333333333333326
+      ],
+      "rougeL": [
+        0.025974025974025976,
+        0.046511627906976744,
+        0.033333333333333326
+      ]
+    },
+    "rouge_dpo": {
+      "rouge1": [
+        0.5952380952380952,
+        0.5813953488372093,
+        0.5882352941176471
+      ],
+      "rougeL": [
+        0.42857142857142855,
+        0.4186046511627907,
+        0.42352941176470593
+      ]
+    },
+    "bleu_base": 0.0,
+    "bleu_dpo": 0.28613404982597385
+  },
+  {
+    "prompt": "Summarize: (CNN)If you've been following the news lately, there are certain things you doubtless know about Mohammad Javad Zarif. He is, of course, the Iranian foreign minister. He has been U.S. Secretary of State John Kerry's opposite number in securing a breakthrough in nuclear discussions that co...",
+    "reference": "Mohammad Javad Zarif has spent more time with John Kerry than any other foreign minister .\nHe once participated in a takeover of the Iranian Consulate in San Francisco .\nThe Iranian foreign minister tweets in English .",
+    "base_summary": "The two men, who are both Iranian and American, are also American. The two men are both Iranian and American. The two men are both Iranian and American. The two men are both Iranian and American. The two men are both Iranian and American. The two men are both Iranian and American. The two men are both Iranian and American. The two men are both Iranian and American. The two",
+    "dpo_summary": "\"Happy New Year,\" reads the website.\nThe website says that Zarif was born in 1961.\nThe website says that Zarif was born in 1961.",
+    "rouge_base": {
+      "rouge1": [
+        0.05714285714285714,
+        0.11428571428571428,
+        0.07619047619047618
+      ],
+      "rougeL": [
+        0.05714285714285714,
+        0.11428571428571428,
+        0.07619047619047618
+      ]
+    },
+    "rouge_dpo": {
+      "rouge1": [
+        0.20833333333333334,
+        0.14285714285714285,
+        0.1694915254237288
+      ],
+      "rougeL": [
+        0.16666666666666666,
+        0.11428571428571428,
+        0.13559322033898305
+      ]
+    },
+    "bleu_base": 0.0,
+    "bleu_dpo": 0.0
+  },
+  {
+    "prompt": "Summarize: (CNN)Five Americans who were monitored for three weeks at an Omaha, Nebraska, hospital after being exposed to Ebola in West Africa have been released, a Nebraska Medicine spokesman said in an email Wednesday. One of the five had a heart-related issue on Saturday and has been discharged bu...",
+    "reference": "17 Americans were exposed to the Ebola virus while in Sierra Leone in March .\nAnother person was diagnosed with the disease and taken to hospital in Maryland .\nNational Institutes of Health says the patient is in fair condition after weeks of treatment .",
+    "base_summary": "The virus is spread by direct contact with the body fluids of an infected person. The virus is spread by direct contact with the body fluids of an infected person. The virus is spread by direct contact with the body fluids of an infected person. The virus is spread by direct contact with the body fluids of an infected person. The virus is spread by direct contact with the body fluids of an infected person.",
+    "dpo_summary": "The five Americans who were monitored for three weeks at an Omaha, Nebraska hospital after being exposed to Ebola in West Africa have been released, a Nebraska Medicine spokesman said in an email Wednesday.\nThe five Americans who were monitored for three weeks at an Omaha, Nebraska hospital after being exposed to Ebola in West Africa have been released, a Nebraska Medicine spokesman said in an email Wednesday.\nThe five Americans",
+    "rouge_base": {
+      "rouge1": [
+        0.12,
+        0.21428571428571427,
+        0.15384615384615383
+      ],
+      "rougeL": [
+        0.12,
+        0.21428571428571427,
+        0.15384615384615383
+      ]
+    },
+    "rouge_dpo": {
+      "rouge1": [
+        0.22535211267605634,
+        0.38095238095238093,
+        0.2831858407079646
+      ],
+      "rougeL": [
+        0.15492957746478872,
+        0.2619047619047619,
+        0.1946902654867257
+      ]
+    },
+    "bleu_base": 0.0,
+    "bleu_dpo": 0.0
+  },
+  {
+    "prompt": "Summarize: (CNN)A Duke student has admitted to hanging a noose made of rope from a tree near a student union, university officials said Thursday. The prestigious private school didn't identify the student, citing federal privacy laws. In a news release, it said the student was no longer on campus an...",
+    "reference": "Student is no longer on Duke University campus and will face disciplinary review .\nSchool officials identified student during investigation and the person admitted to hanging the noose, Duke says .\nThe noose, made of rope, was discovered on campus about 2 a.m.",
+    "base_summary": "",
+    "dpo_summary": "Students gathered at the university's campus to protest the noose, saying it was a \"terrible mistake\"\nStudents gathered at the university's campus to protest the noose, saying it was a \"terrible mistake\"\nStudents gathered at the university's campus to protest the noose, saying it was a \"terrible mistake\"\nStudents gathered at the university's campus to protest the",
+    "rouge_base": {
+      "rouge1": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rougeL": [
+        0,
+        0,
+        0
+      ]
+    },
+    "rouge_dpo": {
+      "rouge1": [
+        0.22950819672131148,
+        0.3333333333333333,
+        0.2718446601941748
+      ],
+      "rougeL": [
+        0.21311475409836064,
+        0.30952380952380953,
+        0.2524271844660194
+      ]
+    },
+    "bleu_base": 0.0,
+    "bleu_dpo": 0.0
+  },
+  {
+    "prompt": "Summarize: (CNN)He's a blue chip college basketball recruit. She's a high school freshman with Down syndrome. At first glance Trey Moses and Ellie Meredith couldn't be more different. But all that changed Thursday when Trey asked Ellie to be his prom date. Trey -- a star on Eastern High School's bas...",
+    "reference": "College-bound basketball star asks girl with Down syndrome to high school prom .\nPictures of the two during the \"prom-posal\" have gone viral .",
+    "base_summary": "\"I'm not going to let her down. I'm going to let her down.\" \"I'm going to let her down.\" \"I'm going to let her down.\" \"I'm going to let her down.\" \"I'm going to let her down.\" \"I'm going to let her down.\" \"I'm going to let her down.\" \"I'm going to let her down",
+    "dpo_summary": "\"She's a good son,\" she said. \"She's a good son.\" \"She's a good son,\" she said. \"She's a good son,\" she said. \"She's a good son,\" she said. \"She's a good son,\" she said. \"She's a good son,\" she said. \"She's a good son,\" she said. \"She's",
+    "rouge_base": {
+      "rouge1": [
+        0.03125,
+        0.08333333333333333,
+        0.045454545454545456
+      ],
+      "rougeL": [
+        0.03125,
+        0.08333333333333333,
+        0.045454545454545456
+      ]
+    },
+    "rouge_dpo": {
+      "rouge1": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rougeL": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "bleu_base": 0.0,
+    "bleu_dpo": 0.0
+  },
+  {
+    "prompt": "Summarize: (CNN)Governments around the world are using the threat of terrorism -- real or perceived -- to advance executions, Amnesty International alleges in its annual report on the death penalty. \"The dark trend of governments using the death penalty in a futile attempt to tackle real or imaginar...",
+    "reference": "Amnesty's annual death penalty report catalogs encouraging signs, but setbacks in numbers of those sentenced to death .\nOrganization claims that governments around the world are using the threat of terrorism to advance executions .\nThe number of executions worldwide has gone down by almost 22% compared with 2013, but death sentences up by 28% .",
+    "base_summary": "\"The death penalty is a cruel and unusual punishment, and it is not just a cruel and unusual punishment, it is a cruel and unusual punishment,\" he said. \"It is a cruel and unusual punishment, and it is not just a cruel and unusual punishment, it is a cruel and unusual punishment, it is a cruel and unusual punishment.\"",
+    "dpo_summary": "Amnesty estimates that at least 19,094 people were believed to be on death row at the end of 2014.\nThe report also highlights the shortcomings in the judiciary process.\nThe report also highlights the shortcomings in the judiciary.",
+    "rouge_base": {
+      "rouge1": [
+        0.05084745762711865,
+        0.05555555555555555,
+        0.05309734513274336
+      ],
+      "rougeL": [
+        0.03389830508474576,
+        0.037037037037037035,
+        0.035398230088495575
+      ]
+    },
+    "rouge_dpo": {
+      "rouge1": [
+        0.2564102564102564,
+        0.18518518518518517,
+        0.21505376344086022
+      ],
+      "rougeL": [
+        0.1794871794871795,
+        0.12962962962962962,
+        0.15053763440860213
+      ]
+    },
+    "bleu_base": 0.0,
+    "bleu_dpo": 0.0
+  },
+  {
+    "prompt": "Summarize: (CNN)Andrew Getty, one of the heirs to billions of oil money, appears to have died of natural causes, a Los Angeles Police Department spokesman said. The coroner's preliminary assessment is there was no foul play involved in the death of Getty, grandson of oil tycoon J. Paul Getty, said D...",
+    "reference": "Andrew Getty's death appears to be from natural causes, police say, citing coroner's early assessment .\nIn a petition for a restraining order, Getty had written he had a serious medical condition.\nPolice say this is not a criminal matter at this time .",
+    "base_summary": "",
+    "dpo_summary": "\"Death of J. Paul Getty is one of three living sons of J. Paul Getty,\" the sheriff's office said Tuesday afternoon.\nJ. Paul Getty died of natural causes.\nJ. Paul Getty died of natural causes.",
+    "rouge_base": {
+      "rouge1": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rougeL": [
+        0,
+        0,
+        0
+      ]
+    },
+    "rouge_dpo": {
+      "rouge1": [
+        0.19444444444444445,
+        0.1590909090909091,
+        0.17500000000000002
+      ],
+      "rougeL": [
+        0.1388888888888889,
+        0.11363636363636363,
+        0.125
+      ]
+    },
+    "bleu_base": 0.0,
+    "bleu_dpo": 0.0
+  },
+  {
+    "prompt": "Summarize: (CNN)Filipinos are being warned to be on guard for flash floods and landslides as tropical storm Maysak approached the Asian island nation Saturday. Just a few days ago, Maysak gained super typhoon status thanks to its sustained 150 mph winds. It has since lost a lot of steam as it has sp...",
+    "reference": "Once a super typhoon, Maysak is now a tropical storm with 70 mph winds .\nIt could still cause flooding, landslides and other problems in the Philippines .",
+    "base_summary": "He said the storm was expected to be \"very strong\" and could be \"very strong\" in the coming days. \"We are not sure what the impact will be,\" Dry said. \"We are not sure what the impact will be.\" He said the storm was expected to be \"very strong\" and could be \"very strong\" in the coming days. \"We are not sure what the",
+    "dpo_summary": "Flooding, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides, landslides,",
+    "rouge_base": {
+      "rouge1": [
+        0.078125,
+        0.19230769230769232,
+        0.11111111111111112
+      ],
+      "rougeL": [
+        0.078125,
+        0.19230769230769232,
+        0.11111111111111112
+      ]
+    },
+    "rouge_dpo": {
+      "rouge1": [
+        0.07692307692307693,
+        0.07692307692307693,
+        0.07692307692307693
+      ],
+      "rougeL": [
+        0.07692307692307693,
+        0.07692307692307693,
+        0.07692307692307693
+      ]
+    },
+    "bleu_base": 0.0,
+    "bleu_dpo": 0.0
+  },
+  {
+    "prompt": "Summarize: (CNN)For the first time in eight years, a TV legend returned to doing what he does best. Contestants told to \"come on down!\" on the April 1 edition of \"The Price Is Right\" encountered not host Drew Carey but another familiar face in charge of the proceedings. Instead, there was Bob Barker...",
+    "reference": "Bob Barker returned to host \"The Price Is Right\" on Wednesday .\nBarker, 91, had retired as host in 2007 .",
+    "base_summary": "",
+    "dpo_summary": "Barker, who hosted the show for 35 years before stepping down in 2007, was the host of \"The Price Is Right\".\nBarker, who hosted the show for 35 years before stepping down in 2007, was the host of \"The Price Is Right\".",
+    "rouge_base": {
+      "rouge1": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rougeL": [
+        0,
+        0,
+        0
+      ]
+    },
+    "rouge_dpo": {
+      "rouge1": [
+        0.23809523809523808,
+        0.5263157894736842,
+        0.3278688524590164
+      ],
+      "rougeL": [
+        0.23809523809523808,
+        0.5263157894736842,
+        0.3278688524590164
+      ]
+    },
+    "bleu_base": 0.0,
+    "bleu_dpo": 0.0
+  }
+]

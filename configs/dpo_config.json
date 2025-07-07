@@ -1,0 +1,14 @@
+// {
+//   "output_dir": "./distilgpt2-dpo-checkpoint",
+//   "per_device_train_batch_size": 4,
+//   "learning_rate": 5e-5,
+//   "num_train_epochs": 3,
+//   "logging_dir": "./logs",
+//   "save_strategy": "epoch",
+//   "save_total_limit": 1,
+//   "bf16": false,
+//   "fp16": true,
+//   "remove_unused_columns": false,
+//   "report_to": "none",
+//   "padding_value": 50256
+// }
