@@ -7,9 +7,9 @@ This project implements a summarization system fine-tuned using **Direct Prefere
 ```
 preference-tuned-summarizer/
 ├── configs/
-│   └── dpo_config.json
+│   └── dpo_config.json              # Configuration file containing hyperparameters and settings for DPO fine-tuning
 ├── data/
-│   └── dpo_format.json
+│   └── dpo_format.json              # Dataset formatted with preference pairs (`prompt`, `chosen`, and `rejected`)
 ├── notebooks/
 │   ├── data_preparation.ipynb       # Dataset preprocessing and preference formatting
 │   └── train_dpo.ipynb              # Fine-tuning using DPO
@@ -73,4 +73,4 @@ print(result[0]["generated_text"])
 
 ## Author
 
-Created by [Thanuja Liyanage](https://github.com/justthzz) as a practical showcase project for AI/ML internships.
+Created by [Thanuja Liyanage](https://github.com/justthzz) as a practical showcase project.
