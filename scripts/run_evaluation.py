@@ -12,8 +12,8 @@ tokenizer = AutoTokenizer.from_pretrained("distilgpt2")
 tokenizer.pad_token = tokenizer.eos_token
 
 base_model = AutoModelForCausalLM.from_pretrained("distilgpt2")
-dpo_model = pipeline("text-generation", model="/Users/thanuja/Desktop/preference-tuned-summarizer/models/distilgpt2-dpo-checkpoint/checkpoint-2154")
-grpo_model = pipeline("text-generation", model="/Users/thanuja/Desktop/preference-tuned-summarizer/models/distilgpt2-grpo-checkpoint/checkpoint-1000")
+dpo_model = pipeline("text-generation", model="../models/distilgpt2-dpo-checkpoint/checkpoint-2154")
+grpo_model = pipeline("text-generation", model="../models/distilgpt2-grpo-checkpoint/checkpoint-1000")
 
 # Load test samples
 dataset = load_dataset("cnn_dailymail", "3.0.0", split="test[:10]")
@@ -70,7 +70,7 @@ for item in dataset:
     })
 
 # Save results
-with open("/Users/thanuja/Desktop/preference-tuned-summarizer/outputs/evaluation_results.json", "w") as f:
+with open("../outputs/evaluation_results.json", "w") as f:
     json.dump(results, f, indent=2)
 
 print("Evaluation complete! Results saved to `outputs/evaluation_results_grpo.json`")
