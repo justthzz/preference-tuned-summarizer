@@ -26,7 +26,14 @@ results = []
 
 def generate_summary(prompt, model, tokenizer):
     inputs = tokenizer(prompt, return_tensors="pt", truncation=True, padding=True).to(device)
-    output_ids = model.generate(**inputs, max_new_tokens=80, do_sample=False)
+    output_ids = model.generate(
+        **inputs,
+        max_new_tokens=150,
+        temperature=0.7,
+        top_p=0.9,
+        repetition_penalty=1.2,
+        do_sample=True
+    )
     generated = tokenizer.decode(output_ids[0], skip_special_tokens=True)
     return generated.replace(prompt, "").strip()
 
