@@ -2,90 +2,75 @@
 
 This project implements a summarization system fine-tuned using **Direct Preference Optimization (DPO)** on a small language model (DistilGPT2). Built using Hugging Face's `trl` library, it demonstrates how preference-based learning can guide a model to generate summaries closer to human preferences.
 
----
-
-## Project Overview
-
-- **Model**: DistilGPT2
-- **Tuning Method**: Direct Preference Optimization (DPO)
-- **Dataset**: Hugging Face preference-formatted summarization dataset
-- **Evaluation**: ROUGE-1, ROUGE-L, BLEU
-- **Libraries**: HuggingFace Transformers, TRL, Evaluate, Datasets
-
----
-
-## Training Configuration
-
-```json
-{
-  "output_dir": "./distilgpt2-dpo-checkpoint",
-  "per_device_train_batch_size": 4,
-  "learning_rate": 5e-5,
-  "num_train_epochs": 3,
-  "logging_dir": "./logs",
-  "save_strategy": "epoch",
-  "save_total_limit": 1,
-  "bf16": false,
-  "fp16": true,
-  "remove_unused_columns": false,
-  "report_to": "none",
-  "padding_value": 50256
-}
-```
-
----
-
-## Evaluation Results
-
-| Metric      | **Base Summary (avg)** | **DPO Summary (avg)** |
-| ----------- | ---------------------- | --------------------- |
-| **ROUGE-1** | 0.0442                 | **0.2841**            |
-| **ROUGE-L** | 0.0366                 | **0.2247**            |
-| **BLEU**    | 0.0000                 | **0.0286**            |
-
-> The DPO-tuned model shows improvement in ROUGE metrics indicating better alignment with reference summaries.
-
----
-
-## Inference
-
-Use `pipeline("text-generation", model=...)` to generate summaries after training. See `scripts/run_evaluation.py`.
-
----
-
-## Folder Structure
+## 📁 Project Structure
 
 ```
 preference-tuned-summarizer/
-│
 ├── configs/
 │   └── dpo_config.json
-│
 ├── data/
-│   └── dataset_prepared.json
-│
+│   └── dpo_format.json
+├── notebooks/
+│   ├── data_preparation.ipynb       # Dataset preprocessing and preference formatting
+│   └── train_dpo.ipynb              # Fine-tuning using DPO
 ├── models/
-│   └── distilgpt2-dpo-checkpoint/
-│
+│   └── distilgpt2-dpo-checkpoint/   # Final fine-tuned model artifacts
 ├── outputs/
-│   └── evaluation_results.json
-│
+│   └── evaluation_results.json      # Evaluation scores and sample generations
 ├── scripts/
-│   ├── train_dpo.py
-│   └── run_evaluation.py
-│
-└── README.md
+│   ├── train_dpo.py                 # DPO training pipeline (script version)
+│   └── run_evaluation.py            # Evaluation on multiple examples
 ```
 
----
+## Model Overview
 
-## Credits
+- **Base Model**: `distilgpt2` (from Hugging Face)
+- **Fine-Tuning Method**: Direct Preference Optimization (DPO)
+- **Objective**: Improve summary generation using pairwise preferences between chosen and rejected summaries.
 
-- Hugging Face `trl` (https://github.com/huggingface/trl)
-- Hugging Face Datasets, Transformers, and Evaluate libraries
+## Dataset
 
----
+Used a preference-formatted summarization dataset in Hugging Face format. Each sample contains:
+- `prompt`: Input text to summarize
+- `chosen`: Preferred summary
+- `rejected`: Less-preferred summary
+
+## Training Details
+
+- Framework: `transformers`, `trl` (DPOTrainer), `accelerate`
+- Batch Size: 4
+- Max Length: 512
+- Optimizer: AdamW
+- Mixed precision enabled for efficiency
+
+## Evaluation Results
+
+The following metrics were used to compare the baseline (untrained) and the DPO-fine-tuned model:
+
+| Metric   | Base Summary (avg) | DPO Summary (avg) |
+|----------|--------------------|--------------------|
+| ROUGE-1  | 0.0442             | 0.2841             |
+| ROUGE-L  | 0.0366             | 0.2247             |
+| BLEU     | 0.0000             | 0.0286             |
+
+These results show clear improvements in text relevance and structure when using preference-based fine-tuning.
+
+## How to Use the Model
+
+```python
+from transformers import pipeline
+
+pipe = pipeline("text-generation", model="justthzz/preference-tuned-summarizer")
+result = pipe("Summarize: The International Criminal Court granted full membership to Palestine, expanding their ability to challenge war crimes...")
+print(result[0]["generated_text"])
+```
+
+## Applications
+
+- News summarization with human-like quality
+- Custom summarizers for specific domains (legal, medical)
+- Research on preference learning and RLHF
 
 ## Author
 
-Thanuja Liyanage | [GitHub](https://github.com/justthzz) | [LinkedIn](https://linkedin.com/in/thanujaliyanage)
+Created by [Thanuja Liyanage](https://github.com/justthzz) as a practical showcase project for AI/ML internships.
