@@ -1,59 +1,69 @@
-from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from datasets import load_dataset
 from rouge_score import rouge_scorer
 import evaluate
+import torch
 import json
 
-# Load models
-base_model = pipeline("text-generation", model="distilgpt2")
-dpo_model = pipeline("text-generation", model="../models/distilgpt2-dpo-checkpoint/checkpoint-2154")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Load some prompts for testing
+# Load tokenizer and models
+tokenizer = AutoTokenizer.from_pretrained("distilgpt2")
+tokenizer.pad_token = tokenizer.eos_token
+
+base_model = AutoModelForCausalLM.from_pretrained("distilgpt2")
+dpo_model = pipeline("text-generation", model="/Users/thanuja/Desktop/preference-tuned-summarizer/models/distilgpt2-dpo-checkpoint/checkpoint-2154")
+grpo_model = pipeline("text-generation", model="/Users/thanuja/Desktop/preference-tuned-summarizer/models/distilgpt2-grpo-checkpoint/checkpoint-1000")
+
+# Load test samples
 dataset = load_dataset("cnn_dailymail", "3.0.0", split="test[:10]")
 
-# Load metrics
+# Metrics
 scorer = rouge_scorer.RougeScorer(['rouge1', 'rougeL'], use_stemmer=True)
 bleu = evaluate.load("bleu")
 
 results = []
 
+def generate_summary(prompt, model, tokenizer):
+    inputs = tokenizer(prompt, return_tensors="pt", truncation=True, padding=True).to(device)
+    output_ids = model.generate(**inputs, max_new_tokens=80, do_sample=False)
+    generated = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+    return generated.replace(prompt, "").strip()
+
 for item in dataset:
     prompt = "Summarize: " + item["article"]
     reference = item["highlights"]
 
-    base_output = base_model(prompt, max_new_tokens=80, do_sample=False)[0]['generated_text']
-    dpo_output = dpo_model(prompt, max_new_tokens=80, do_sample=False)[0]['generated_text']
-
-    # Cut out the actual summary only
-    base_summary = base_output.replace(prompt, "").strip()
-    dpo_summary = dpo_output.replace(prompt, "").strip()
+    base_summary = generate_summary(prompt, base_model, tokenizer)
+    dpo_summary = generate_summary(prompt, base_model, tokenizer)
+    grpo_summary = generate_summary(prompt, base_model, tokenizer)
 
     # ROUGE
     rouge_base = scorer.score(reference, base_summary)
     rouge_dpo = scorer.score(reference, dpo_summary)
+    rouge_grpo = scorer.score(reference, grpo_summary)
 
     # BLEU
-    if base_summary.strip() == "" or dpo_summary.strip() == "":
-        bleu_base = 0.0
-        bleu_dpo = 0.0
-    else:
-        bleu_base = bleu.compute(predictions=[base_summary], references=[[reference]])["bleu"]
-        bleu_dpo = bleu.compute(predictions=[dpo_summary], references=[[reference]])["bleu"]
-
+    bleu_base = bleu.compute(predictions=[base_summary], references=[[reference]])["bleu"] if base_summary else 0.0
+    bleu_dpo = bleu.compute(predictions=[dpo_summary], references=[[reference]])["bleu"] if dpo_summary else 0.0
+    bleu_grpo = bleu.compute(predictions=[grpo_summary], references=[[reference]])["bleu"] if grpo_summary else 0.0
 
     results.append({
         "prompt": prompt[:300] + "...",
         "reference": reference,
         "base_summary": base_summary,
         "dpo_summary": dpo_summary,
+        "grpo_summary": grpo_summary,
         "rouge_base": rouge_base,
         "rouge_dpo": rouge_dpo,
+        "rouge_grpo": rouge_grpo,
         "bleu_base": bleu_base,
-        "bleu_dpo": bleu_dpo
+        "bleu_dpo": bleu_dpo,
+        "bleu_grpo": bleu_grpo
     })
 
 # Save results
-with open("../outputs/evaluation_results.json", "w") as f:
+with open("/Users/thanuja/Desktop/preference-tuned-summarizer/outputs/evaluation_results.json", "w") as f:
     json.dump(results, f, indent=2)
 
-print("Evaluation complete! Results saved to outputs/evaluation_results.json")
+print("Evaluation complete! Results saved to `outputs/evaluation_results_grpo.json`")
